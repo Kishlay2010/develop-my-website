@@ -1,42 +1,17 @@
-# Nuxt 3 Minimal Starter
+# Develop my Website Masterclass
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Welcome to the develop my website masterclass.
 
-## Setup
+What you see here is your editor. On the far left you see a list of icons. 
 
-Make sure to install the dependencies:
+When you first open this, you'll start with the Explorer. The explorer has a list of open files and an overview of all the folders and files. There are other items at the bottom, but we'll ignore them for now.
 
-```bash
-# yarn
-yarn install
+The text you are reading now, is inside the README.md file. Notice that the README.md tab is opened above this text.
 
-# npm
-npm install
+Furthermore below this text, what you have is a terminal. That terminal is running a program which takes our code and turns it into the website to the right. To get the best out of it, we need to go to the ports tab below. Then we right click the line with HMR and from Port Visibility we pick public.
 
-# pnpm
-pnpm install
-```
+With that out of the way, you can close the README.md file by clicking the X in the tab.
 
-## Development Server
+## Afterwards
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+If you've made all your changes to the home page, check out plugins/vuetify.ts and perhaps change the theme. Or you can also make the pages/about.vue your own.

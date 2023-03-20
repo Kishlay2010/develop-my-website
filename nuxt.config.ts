@@ -43,9 +43,7 @@ export default defineNuxtConfig({
   hooks: {
     'vite:extendConfig': (config) => {
       config.plugins?.push(
-        vuetify({
-          styles: { configFile: resolve('./settings.scss') },
-        })
+        vuetify({ autoImport: true, styles: 'sass' })
       )
     }
   }

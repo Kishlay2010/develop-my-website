@@ -12,7 +12,8 @@
   "customizations": {
     "codespaces": {
       "openFiles": [
-        "app.vue"
+        "README.md",
+        "pages/index.vue"
       ]
     },
     "vscode": {
@@ -25,6 +26,9 @@
     "3000": {
       "label": "Application",
       "onAutoForward": "openPreview"
+    },
+    "24678": {
+      "label": "HMR"
     }
   },
   "forwardPorts": [
