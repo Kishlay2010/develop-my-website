@@ -1,22 +1,37 @@
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   # Build job
   build:
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: "18"
-        cache: pnpm
+    # Specify runner
+    runs-on: ubuntu-latest
+    # Specify build steps
+    steps:
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: pnpm install
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.28.0
+      
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: pnpm
 
-    - name: Static HTML export from nuxt
-      run: pnpm nuxt generate
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: ./output/public
+      - name: Static HTML export from nuxt
+        run: pnpm nuxt generate
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: .output/public
 
   # Deploy job
   deploy:

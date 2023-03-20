@@ -1,3 +1,8 @@
+import vuetify from "vite-plugin-vuetify";
+import { createResolver } from "@nuxt/kit";
+
+const { resolve } = createResolver(import.meta.url);
+
 const hmrPort = 24678;
 const hmrHost = `${process.env.CODESPACE_NAME}-${hmrPort}.${process.env.GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}`;
 
@@ -13,6 +18,7 @@ export default defineNuxtConfig({
     },
     server: {
       hmr: {
+        host: "0.0.0.0",
         protocol: "wss",
         clientPort: 443,
         port: hmrPort,
@@ -34,4 +40,13 @@ export default defineNuxtConfig({
       },
     ],
   },
+  hooks: {
+    'vite:extendConfig': (config) => {
+      config.plugins?.push(
+        vuetify({
+          styles: { configFile: resolve('./settings.scss') },
+        })
+      )
+    }
+  }
 });
