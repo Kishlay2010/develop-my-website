@@ -27,6 +27,8 @@ jobs:
 
       - name: Static HTML export from nuxt
         run: pnpm nuxt generate
+        env:
+          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

@@ -1,5 +1,9 @@
 import { createVuetify, ThemeDefinition } from "vuetify";
 
+// This is the theme we're currently using
+// the colors are in hex-format. Instead of numbers going from 0 to 9, they continue after 9 to a, b, c, d, e, f
+// Each pair of characters makes up a component of red, green and blue from 0 - 255. So FF 00 11 means red is 255, green is 0 and blue is 17
+// Try changing the colors to see what happens, you can always look for a color tool online to help you
 const myCustomLightTheme = {
   dark: false,
   colors: {
@@ -36,6 +40,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   const vuetify = createVuetify({
     ssr: true,
     theme: {
+      // try changing 'myCustomLightTheme' to 'dark' or 'myAllBlackTheme'
       defaultTheme: 'myCustomLightTheme',
       themes: {
         myCustomLightTheme,

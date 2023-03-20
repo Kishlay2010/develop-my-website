@@ -8,11 +8,11 @@ const hmrHost = `${process.env.CODESPACE_NAME}-${hmrPort}.${process.env.GITHUB_C
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  css: ["vuetify/lib/styles/main.sass"],
-  build: {
-    transpile: ["vuetify"],
-  },
+  css: ["vuetify/styles"],
   vite: {
+    ssr: {
+      noExternal: ['vuetify']
+    },
     define: {
       "process.env.DEBUG": false,
     },
@@ -43,8 +43,8 @@ export default defineNuxtConfig({
   hooks: {
     'vite:extendConfig': (config) => {
       config.plugins?.push(
-        vuetify({ autoImport: true, styles: 'sass' })
+        vuetify({ autoImport: true })
       )
     }
-  }
+  },
 });
