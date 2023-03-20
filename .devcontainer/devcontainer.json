@@ -16,7 +16,9 @@
       ]
     },
     "vscode": {
-      "extensions": ["Vue.volar"]
+      "extensions": [
+        "Vue.volar"
+      ]
     }
   },
   "portsAttributes": {
@@ -25,5 +27,8 @@
       "onAutoForward": "openPreview"
     }
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [
+    3000,
+    24678
+  ]
 }
