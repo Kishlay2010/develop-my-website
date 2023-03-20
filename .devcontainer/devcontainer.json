@@ -1,0 +1,29 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18-bullseye",
+  "hostRequirements": {
+    "cpus": 2
+  },
+  "waitFor": "onCreateCommand",
+  "updateContentCommand": "pnpm install && pnpm build",
+  "postCreateCommand": "",
+  "postAttachCommand": {
+    "server": "pnpm dev"
+  },
+  "customizations": {
+    "codespaces": {
+      "openFiles": [
+        "app.vue"
+      ]
+    },
+    "vscode": {
+      "extensions": ["Vue.volar"]
+    }
+  },
+  "portsAttributes": {
+    "3000": {
+      "label": "Application",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "forwardPorts": [3000]
+}
