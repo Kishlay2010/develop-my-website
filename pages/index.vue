@@ -44,7 +44,7 @@ async function submitForm() {
       <!-- An avatar provides a nice round circle around an image -->
       <VAvatar size="120" class="mr-4">
         <!-- This is an image, inside a tag we can use : before an attribute to refer to our variables -->
-        <VImg src="/img/avatar.jpg" cover eager :alt="name" />
+        <VImg src="img/avatar.jpg" cover eager :alt="name" />
       </VAvatar>
       <!-- h1, h2, h3, h4, h5 and h6 are all headers. h1 is the largest -->
       <h1>
@@ -59,8 +59,8 @@ async function submitForm() {
   </VCard>
   <VCard :loading="sendingForm">
     <!-- Below we are defining a form which people can use to leave their email, so you can contact them later on.
-            Feel free to add some many fields as you like, just remember to also change the script in the sheet to enter them into the sheet
-          -->
+              Feel free to add some many fields as you like, just remember to also change the script in the sheet to enter them into the sheet
+            -->
     <VCardTitle>Get in touch</VCardTitle>
     <VCardText>
       Leave your email

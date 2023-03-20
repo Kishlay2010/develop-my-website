@@ -12,7 +12,7 @@ const route = useRoute();
       <VSpacer />
     </VAppBar>
     <VMain>
-      <VParallax src="/img/background.jpg">
+      <VParallax src="img/background.jpg">
         <VContainer>
           <NuxtPage />
         </VContainer>
