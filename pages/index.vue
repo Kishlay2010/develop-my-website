@@ -3,7 +3,7 @@
 // This is the code that actually makes the website.
 
 // It is split in 2 parts. You are currently reading the script. You can recognize it by the (<)script(>) and (<)/script(>) tags. The script opens the script and the /script closes the script.
-// The other part is the template, which you recognize by the template and /template
+// The other part is the template, which you recognize by the (<)template(>) and (<)/template(>)
 
 // In your script you can define variables and actions. You can then bind those variables and actions to your template.
 
@@ -20,7 +20,7 @@ const sendingForm = ref(false);
 async function submitForm() {
   sendingForm.value = true;
   // TODO: change this to your own endpoint
-  const url = "https://script.google.com/macros/s/AKfycbzIvjpyNfJ5L-Er8jS5bBLiIkCI48kJgBKerpNaOlqjK3aYSj0XmBNSQAYMzA6TlOmCZg/exec";
+  const url = "https://script.google.com/macros/s/AKfycbxDTsaJbW8EsjTbYeSVNg_NSO1oIjSr39cO-urupvUEsBMm7yopkBjs27OfVD6O3jPssQ/exec";
   const response = await fetch(url, {
     method: "post",
     headers: {
@@ -37,14 +37,15 @@ async function submitForm() {
 </script>
 <template>
   <!-- We're now inside the template, here comments start with (<)!-- and and with --(>) -->
-  <!-- We are starting this page with a card and specify that it has some margin at the bottom -->
+  <!-- We are starting this page with a card and specify that it has some margin at the bottom with class="mb-10" -->
   <VCard class="mb-10">
     <!-- Then we define the card title -->
     <VCardTitle class="d-flex align-center">
       <!-- An avatar provides a nice round circle around an image -->
       <VAvatar size="120" class="mr-4">
         <!-- This is an image, inside a tag we can use : before an attribute to refer to our variables -->
-        <VImg src="img/avatar.jpg" cover eager :alt="name" />
+        <!-- alt is used to describe what an image is like in text. For example blind people can use that to understand what is actually on the image -->
+        <VImg src="img/avatar.jpg" cover eager :alt="name" :title="name" />
       </VAvatar>
       <!-- h1, h2, h3, h4, h5 and h6 are all headers. h1 is the largest -->
       <h1>
@@ -67,7 +68,7 @@ async function submitForm() {
       <!-- With the @submit.prevent.stop="submitForm" we bind the submitForm function from the script to execute with the button in the form is clicked -->
       <VForm @submit.prevent.stop="submitForm">
         <!-- With the v-model we connect the email ref() to this email field. Whenever a user makes changes, those will be put into the email.value -->
-        <VTextField label="email" v-model="email" />
+        <VTextField label="Your email" v-model="email" />
         <VBtn type="submit" color="primary">Submit</VBtn>
       </VForm>
     </VCardText>
