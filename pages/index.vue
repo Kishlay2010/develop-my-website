@@ -13,6 +13,7 @@
 const name = 'Boudewijn van Groos';
 
 // We'll get to this part later in the masterclass
+const senderName = ref("");
 const email = ref("");
 const showResponse = ref(false);
 const sendingForm = ref(false);
@@ -20,13 +21,13 @@ const sendingForm = ref(false);
 async function submitForm() {
   sendingForm.value = true;
   // TODO: change this to your own endpoint
-  const url = "https://script.google.com/macros/s/AKfycbzIWPXe7JL4Kz0VzfG7qTBTeJ8xRCv6h2cFNr2coKnYDckC3EeCgVPCDbQPRYrZ4Sp5/exec";
+  const url = "https://script.google.com/macros/s/AKfycbyWGXqQ6Z6x6CVKgBUEFL_yGitpTJTvMIYk9Fmta9T1_-ljTscOBhXqBgO-s_iTBT0V/exec";
   const response = await fetch(url, {
     method: "post",
     headers: {
       "Content-Type": "text/plain"
     },
-    body: JSON.stringify({ email: email.value }),
+    body: JSON.stringify({ email: email.value, name: senderName.value }),
     redirect: "follow"
   })
   if (response.ok) {
@@ -64,10 +65,11 @@ async function submitForm() {
             -->
     <VCardTitle>Get in touch</VCardTitle>
     <VCardText>
-      Leave your email
+      Leave your name and email
       <!-- With the @submit.prevent.stop="submitForm" we bind the submitForm function from the script to execute with the button in the form is clicked -->
       <VForm @submit.prevent.stop="submitForm">
         <!-- With the v-model we connect the email ref() to this email field. Whenever a user makes changes, those will be put into the email.value -->
+        <VTextField label="Your name" v-model="senderName" />
         <VTextField label="Your email" v-model="email" />
         <VBtn type="submit" color="primary">Submit</VBtn>
       </VForm>
