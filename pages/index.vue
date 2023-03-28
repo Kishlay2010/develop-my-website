@@ -10,7 +10,7 @@
 // Inside the script, lines that start with // are comments
 
 // This is the name that is used for the header, change it to see what it does!
-const name = 'Baldwin van Groos';
+const name = 'Boudewijn van Groos';
 
 // We'll get to this part later in the masterclass
 const email = ref("");
@@ -20,7 +20,7 @@ const sendingForm = ref(false);
 async function submitForm() {
   sendingForm.value = true;
   // TODO: change this to your own endpoint
-  const url = "https://script.google.com/macros/s/AKfycbxDTsaJbW8EsjTbYeSVNg_NSO1oIjSr39cO-urupvUEsBMm7yopkBjs27OfVD6O3jPssQ/exec";
+  const url = "https://script.google.com/macros/s/AKfycbzIWPXe7JL4Kz0VzfG7qTBTeJ8xRCv6h2cFNr2coKnYDckC3EeCgVPCDbQPRYrZ4Sp5/exec";
   const response = await fetch(url, {
     method: "post",
     headers: {
@@ -55,7 +55,7 @@ async function submitForm() {
     </VCardTitle>
     <VCardText>
       <!-- Here we enter text, feel free to add your own -->
-      I'm a software developer by heart. Always striving to improve myself.
+      I'm a software developer by heart. Always striving to improve myself. I'm getting started with giving masterclasses in web development.
     </VCardText>
   </VCard>
   <VCard :loading="sendingForm">
