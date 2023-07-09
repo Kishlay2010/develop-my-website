@@ -21,7 +21,7 @@ const sendingForm = ref(false);
 async function submitForm() {
   sendingForm.value = true;
   // TODO: change this to your own endpoint
-  const url = "https://script.google.com/macros/s/AKfycbyOSG9Kda0A41zZCBFJbWn75Pbv4VDKrXIv17QUxqwnphiLyN15qZ0puXm83EH2F5XP/exec";
+  const url = "https://script.google.com/macros/s/AKfycbzedNITs110Q3YGGgSy6Amjdbh-F6A4G-UBJL-x4lmZYGuhz7094XzKIFlgM9fwS09k/exec";
   const response = await fetch(url, {
     method: "post",
     headers: {
